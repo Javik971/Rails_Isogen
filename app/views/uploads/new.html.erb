@@ -1,0 +1,7 @@
+<%= form_tag uploads_create_path, multipart: true do %>
+  <%= file_field_tag 'files[]', multiple: true %>
+  <%= submit_tag 'Upload Files' %>
+<% end %>
+<% if flash[:notice].present? %>
+  <%= link_to 'Download ISO', uploads_download_path%>
+<% end %>
