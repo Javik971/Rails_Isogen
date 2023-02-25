@@ -6,7 +6,7 @@ class UploadsController < ApplicationController
       uploaded_files = params[:files]
       file_paths = []
       uploaded_files.each do |file|
-        file_path = "/tmp/#{file.original_filename}"
+        file_path = "/tmp/#{file.original_filename.gsub(" ", "_")}"
         File.open(file_path, 'wb') do |f|
           f.write(file.read)
         end
